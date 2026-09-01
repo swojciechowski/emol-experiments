@@ -214,3 +214,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Ignore results file to not include them in repository
+_results.zip
+_results/
+_figures/
+_tables/
