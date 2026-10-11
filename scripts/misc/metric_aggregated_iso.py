@@ -45,11 +45,11 @@ METRICS = (
     ("F10", lambda tpr, tnr, ppv, npv: fbeta(ppv, tpr, 10)),
 )
 
-n_samples = 100
+n_samples = 300
 levels = 5
 SF = 6
 
-RATIOS = [0.5]
+RATIOS = [0.1]
 
 for min_r in RATIOS:
     n_min = int(n_samples * min_r)
@@ -82,6 +82,7 @@ for min_r in RATIOS:
             x, y = f_space[:, comb].T
 
             ax.tricontourf(x, y, z, levels=100)
+            ax.tricontour(x, y, z, levels=14, colors='black', linewidths=0.5)
             ax.scatter(x, y, edgecolor='w', c=z)
 
             ax.set_xlim(0, 1)

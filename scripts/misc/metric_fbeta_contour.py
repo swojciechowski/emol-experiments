@@ -29,8 +29,8 @@ for beta in betas:
 
     fig.suptitle(f"$\\beta$ = {beta:.2f}", y=0.92, fontsize=12)
 
-    ax.set_xlabel("PPV")
-    ax.set_ylabel("TPR")
+    ax.set_xlabel("TPR")
+    ax.set_ylabel("PPV")
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
     ax.set_aspect('equal')
@@ -41,13 +41,10 @@ for beta in betas:
 
         y_map = np.logical_and(y <= 1.0, y > 0.0)
 
-        ax.plot(space[y_map], y[y_map], c='k', ls="-.")
+        ax.plot(y[y_map], space[y_map], c='k', ls="-.")
         ax.text(p + 0.01, p + 0.01, str(p), size='medium')
 
     ax.grid(ls=':')
 
-    plt.tight_layout()
     plt.savefig(f'contour_F{beta}.pdf', bbox_inches='tight')
-    plt.savefig("foo.png", bbox_inches='tight')
     plt.close()
-    plt.clf()

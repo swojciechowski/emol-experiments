@@ -16,7 +16,7 @@ from sklearn.exceptions import ConvergenceWarning
 simplefilter("ignore", category=ConvergenceWarning)
 
 
-BASE_CLASSIFIERS = [
+DEF_BASE_CLASSIFIERS = [
     ("GNB", GaussianNB()),
     ("KNN", KNeighborsClassifier()),
     ("CRT", DecisionTreeClassifier(random_state=RANDOM_STATE)),

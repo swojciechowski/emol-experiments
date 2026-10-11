@@ -11,7 +11,6 @@ import problexity.classification as c
 
 from emol.helpers.keel import parse_keel_dat
 from emol.helpers.latex import latex_table
-from emol.helpers.plot.color import build_xxnn_color_map
 
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
@@ -28,12 +27,59 @@ if str(PROJECT_ROOT) not in sys.path:
 from config import *
 from tqdm import tqdm
 
-
-
 import colorsys
 import matplotlib.colors as mcolors
 import matplotlib.pyplot as plt
 import numpy as np
+
+def build_xxnn_color_map(category_counts, start_hue=0.0, as_hex=True):
+    """Generates a dict mapping 'XXNN' element keys to distinct sequential colors.
+
+    :param category_counts: Dict of {category_prefix: count}
+    :param start_hue: Hue offset. Accepts float [0.0, 1.0] or degrees [0, 360]
+                       (e.g., 0.0 = Red, 0.33/120° = Green, 0.66/240° = Blue).
+    :param as_hex: Return Hex string if True, RGB float tuple if False
+    :return: Dict of {'XXNN': color}
+    """
+    element_color_map = {}
+    num_categories = len(category_counts)
+
+    # Convert degrees (> 1.0) to float scale [0.0, 1.0]
+    hue_offset = (
+        (start_hue % 360.0) / 360.0 if start_hue > 1.0 else (start_hue % 1.0)
+    )
+
+    for i, (cat, count) in enumerate(category_counts.items()):
+        # Shift hue by start offset and wrap around the color wheel
+        hue = (hue_offset + (i / num_categories)) % 1.0
+
+        if count == 1:
+            saturations = [0.85]
+            values = [0.90]
+        else:
+            saturations = np.linspace(0.30, 0.95, count)
+            values = np.linspace(0.95, 0.50, count)
+
+        for order in range(1, count + 1):
+            s = saturations[order - 1]
+            v = values[order - 1]
+
+            r, g, b = colorsys.hsv_to_rgb(hue, s, v)
+            key = f"{cat}{order:02d}"
+
+            if as_hex:
+                element_color_map[key] = (
+                    f"#{int(r*255):02x}{int(g*255):02x}{int(b*255):02x}"
+                )
+            else:
+                element_color_map[key] = (
+                    round(r, 4),
+                    round(g, 4),
+                    round(b, 4),
+                )
+
+    return element_color_map
+
 
 # Category counts dictionary
 data = {
@@ -55,7 +101,7 @@ data = {
 
 
 # Build complete dictionary
-xxnn_colors = build_xxnn_color_map(data, start_hue=0.85, as_hex=True)
+xxnn_colors = build_xxnn_color_map(data, start_hue=0.75, as_hex=True)
 
 DATASETS = sorted(DATASETS_FULL)
 CMPLX_RESULTS_FILE = 'datasets.npy'
@@ -152,7 +198,7 @@ print(groups)
 for d, s in zip(DATASETS, X):
     l = DATASETS_IDX[d]
     c = xxnn_colors[l]
-    if l.endswith("01"):
+    if d in DATASETS_SHORT:
         ax.scatter(*s, c=c, label=l, edgecolor='k', s=60, lw=1, zorder=6)
     else:
         ax.scatter(*s, label=l, alpha=0.3, facecolor=c, edgecolor='none', s=60)

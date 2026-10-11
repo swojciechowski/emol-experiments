@@ -1,0 +1,16 @@
+critdd==0.0.5.dev0
+experiments==2.0.0
+imbalanced_learn==0.14.2
+imblearn==0.0
+matplotlib==3.11.2
+numpy==2.5.4
+pandas==3.0.6
+problexity==0.5.11
+rich==15.0.0
+scikit_emol==0.1.0
+scikit_emol.egg==info
+scikit_learn==1.9.1
+scipy==1.18.1
+smote_variants==1.0.0
+tabulate==0.10.0
+tqdm==4.70.0

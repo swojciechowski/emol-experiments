@@ -8,7 +8,7 @@ logger.disabled = True
 
 from config import RANDOM_STATE
 
-SMOTEV_DEFAULTS = {
+DEF_SMOTEV_DEFAULTS = {
     "A_SUWO": (A_SUWO, {}),
     "ADASYN": (ADASYN, {}),
     "ADG": (ADG, {}),
@@ -103,7 +103,7 @@ SMOTEV_DEFAULTS = {
 }
 
 def make_smotev_resampler(resampler_name, random_state=RANDOM_STATE):
-    rsmpl_config = SMOTEV_DEFAULTS.get(resampler_name, None)
+    rsmpl_config = DEF_SMOTEV_DEFAULTS.get(resampler_name, None)
 
     if not rsmpl_config:
         return None

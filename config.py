@@ -234,6 +234,14 @@ MEUS_CONFIG = [
     "MEUS-HoldOutFitting-TPR+TNR+PPV-c",
 ]
 
+# MOWS config use old splitting names, change to new name for reproduction
+# MOWS_CONFIG = [
+#     "MOWS-SyntheticFitting-TPR+TNR-c",
+#     "MOWS-SyntheticFitting-TPR+TNR-uc",
+#     "MOWS-LeakingFitting-TPR+TNR-c",
+#     "MOWS-LeakingFitting-TPR+TNR-uc",
+# ]
+
 MOWS_CONFIG = [
     "MOWS-BootstrapFitting-TPR+TNR-c",
     "MOWS-BootstrapFitting-TPR+TNR-uc",
@@ -306,35 +314,35 @@ SMOTEV_NAME = {
 }
 
 METHODS_SHORT_NAMES = {
-    "RandomUnderSampler": "\\textsc{rus}",
-    "ClusterCentroids": "\\textsc{cct}",
-    "InstanceHardnessThreshold": "\\textsc{iht}",
-    "TomekLinks": "\\textsc{tln}",
-    "EditedNearestNeighbours": "\\textsc{enn}",
-    "NearMiss": "\\textsc{nms}",
-    "AllKNN": "\\textsc{akn}",
-    "OneSidedSelection": "\\textsc{oss}",
-    "CondensedNearestNeighbour": "\\textsc{cnn}",
-    "NeighbourhoodCleaningRule": "\\textsc{ncr}",
+    "RandomUnderSampler": "rus",
+    "ClusterCentroids": "cct",
+    "InstanceHardnessThreshold": "iht",
+    "TomekLinks": "tln",
+    "EditedNearestNeighbours": "enn",
+    "NearMiss": "nms",
+    "AllKNN": "akn",
+    "OneSidedSelection": "oss",
+    "CondensedNearestNeighbour": "cnn",
+    "NeighbourhoodCleaningRule": "ncr",
     #
-    "polynom_fit_SMOTE_star" : "\\textsc{pfs}",
-    "ProWSyn" : "\\textsc{pws}",
-    "SMOTE_IPF" : "\\textsc{ipf}",
-    "Lee" : "\\textsc{lee}",
-    "SMOBD" : "\\textsc{sbd}",
-    "G_SMOTE" : "\\textsc{gsm}",
-    "CCR" : "\\textsc{ccr}",
-    "LVQ_SMOTE" : "\\textsc{lvq}",
-    "Assembled_SMOTE" : "\\textsc{ass}",
-    "SMOTE_TomekLinks" : "\\textsc{stl}",
+    "polynom_fit_SMOTE_star" : "pfs",
+    "ProWSyn" : "pws",
+    "SMOTE_IPF" : "ipf",
+    "Lee" : "lee",
+    "SMOBD" : "sbd",
+    "G_SMOTE" : "gsm",
+    "CCR" : "ccr",
+    "LVQ_SMOTE" : "lvq",
+    "Assembled_SMOTE" : "ass",
+    "SMOTE_TomekLinks" : "stl",
     #
-    "MEUS-HoldOutFitting-balanced_accuracy-c": "\\textsc{eus}",
-    "MEUS-HoldOutFitting-TPR+PPV-c": "\\textsc{m-ss}",
-    "MEUS-HoldOutFitting-TPR+TNR-c": "\\textsc{m-sp}",
-    "MEUS-HoldOutFitting-TPR+TNR+PPV-c": "\\textsc{m-ssp}",
+    "MEUS-HoldOutFitting-balanced_accuracy-c": "s-bac",
+    "MEUS-HoldOutFitting-TPR+PPV-c": "m-ss",
+    "MEUS-HoldOutFitting-TPR+TNR-c": "m-sp",
+    "MEUS-HoldOutFitting-TPR+TNR+PPV-c": "m-ssp",
     #
-    "MOWS-BootstrapFitting-TPR+TNR-c": "\\textsc{synt-c}",
-    "MOWS-BootstrapFitting-TPR+TNR-uc": "\\textsc{synt-u}",
-    "MOWS-DummyFitting-TPR+TNR-c": "\\textsc{leak-c}",
-    "MOWS-DummyFitting-TPR+TNR-uc": "\\textsc{leak-u}",
+    "MOWS-BootstrapFitting-TPR+TNR-c": "synt-c",
+    "MOWS-BootstrapFitting-TPR+TNR-uc": "synt-u",
+    "MOWS-DummyFitting-TPR+TNR-c": "leak-c",
+    "MOWS-DummyFitting-TPR+TNR-uc": "leak-u",
 }

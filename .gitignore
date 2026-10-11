@@ -215,8 +215,10 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
+.DS_Store
+
 # Ignore results file to not include them in repository
-_results.zip
+# _results.zip
 _results/
-_figures/
-_tables/
+# _figures/
+# _tables/

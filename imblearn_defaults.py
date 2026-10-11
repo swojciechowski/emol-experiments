@@ -5,7 +5,7 @@ from config import RANDOM_STATE
 
 
 
-IMBL_OVERSAMPLERS = [
+DEF_IMBL_OVERSAMPLERS = [
         ("ADASYN", ADASYN(random_state=RANDOM_STATE)),
         ("RandomOverSampler", RandomOverSampler(random_state=RANDOM_STATE)),
         ("SMOTE", SMOTE(random_state=RANDOM_STATE)),
@@ -16,7 +16,7 @@ IMBL_OVERSAMPLERS = [
         ("SMOTEN", SMOTEN(random_state=RANDOM_STATE)),
     ]
 
-IMBL_UNDERSAMPLERS = [
+DEF_IMBL_UNDERSAMPLERS = [
         ("RandomUnderSampler", RandomUnderSampler(random_state=RANDOM_STATE)),
         ("NearMiss", NearMiss()),
         ("TomekLinks", TomekLinks()),
@@ -29,4 +29,4 @@ IMBL_UNDERSAMPLERS = [
         ("AllKNN", AllKNN()),
     ]
 
-IMBL_RESAMPERS = IMBL_OVERSAMPLERS + IMBL_UNDERSAMPLERS
+DEF_IMBL_RESAMPERS = DEF_IMBL_OVERSAMPLERS + DEF_IMBL_UNDERSAMPLERS
